@@ -1,6 +1,6 @@
 # SonoffWemosWithPushbutton3
 
-This project is an extension of Aruna Tennakoon's Wemos Relay switch.  Doug Strickland added code to allow an external switch in case Alexa, WiFi, etc. wasn't working.  I created this for to make Doug's code work with a Sonoff.  Caution!  Do NOT connect the Sonoff to any AC power until after you have completed and tested up to step 15.  Then you can connect AC power to the input of the Sonoff and test again after you have disconnected the USB to Serial adapter both from your computer and from the Sonoff!
+This project is an extension of Aruna Tennakoon's Wemos Relay switch.  Doug Strickland added code to allow an external switch in case Alexa, WiFi, etc. wasn't working.  I modified Doug's code work with a Sonoff.  Caution!  Do NOT connect the Sonoff to any AC power until after you have completed and tested up to step 15.  Then you can connect AC power to the input of the Sonoff and test again after you have disconnected the USB to Serial adapter both from your computer and from the Sonoff!
 
 Hardware setup:
 1. Add/solder 4 pin headers to the Sonoff (see internet tutorials on modifying the Sonoff for 3rd party code)
