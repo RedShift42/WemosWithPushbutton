@@ -10,8 +10,8 @@ void startHttpServer();
 void turnOnRelay();
 void turnOffRelay();
 
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
+const char* ssid = "your_ssid";
+const char* password = "your_wifi_password";
 
 unsigned int localPort = 1900;      // local port to listen on
 
@@ -30,8 +30,9 @@ String serial;
 String persistent_uuid;
 String device_name;
 
-const int relayPin = D1;
-const int switchPin = D0;
+const int relayPin = 12;
+const int switchPin = 0;
+const int ledPin = 13;
 
 boolean cannotConnectToWifi = false;
 
@@ -46,6 +47,9 @@ void setup() {
   // Setup Switch
   pinMode(switchPin, INPUT);  
 
+  // Setup LED
+  pinMode(ledPin, OUTPUT);
+  
   turnOffRelay();
   switchState = 0;
   Serial.println("Setting relay to off - setting value to 0");
@@ -153,7 +157,7 @@ void prepareIds() {
 
   serial = String(uuid);
   persistent_uuid = "Socket-1_0-" + serial;
-  device_name = "NAME_YOUR_DEVICE_HERE";
+  device_name = "Lamp 1";  //change this to the device name you want Alex to discover
 }
 
 void respondToSearch() {
@@ -349,10 +353,12 @@ boolean connectUDP(){
 
 void turnOnRelay() {
  digitalWrite(relayPin, HIGH); // turn on relay with voltage HIGH 
+ digitalWrite(ledPin, LOW);  // turn on the LED with voltage LOW
  switchState = 1;
 }
 
 void turnOffRelay() {
   digitalWrite(relayPin, LOW);  // turn off relay with voltage LOW
+  digitalWrite(ledPin, HIGH);  // turn off the LED with voltage HIGH
   switchState = 0;
 }
